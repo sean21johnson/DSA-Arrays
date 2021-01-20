@@ -43,7 +43,37 @@ function maxSum(arr) {
 }
 
 //8 Merge arrays
+function mergeArrays(arrOne, arrTwo) {
+    let indexOne = 0;
+    let indexTwo = 0;
+    let mergedArray = [];
 
-let myArray = [4, 6, -3, 5, -2, 1]
+    while (indexOne < arrOne.length && indexTwo < arrTwo.length) {
+        if (arrOne[indexOne] < arrTwo[indexTwo]) {
+            mergedArray.push(arrOne[indexOne]);
+            indexOne++;
+        }
+        else {
+            mergedArray.push(arrTwo[indexTwo]);
+            indexTwo++;
+        }
+    }
 
-console.log(maxSum(myArray))
+    if (indexOne < arrOne.length) {
+        while (indexOne < arrOne.length) {
+            mergedArray.push(arrOne[indexOne]);
+            indexOne++;
+        }
+    }
+
+    if (indexTwo < arrTwo.length) {
+        while (indexTwo < arrTwo.length) {
+            mergedArray.push(arrTwo[indexTwo]);
+            indexTwo++;
+        }
+    }
+
+    return mergedArray;
+} 
+
+//Remove Characters
